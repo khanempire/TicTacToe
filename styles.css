@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: #545454;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+   /* background-color: #99b898;*/
+}
+.container{
+    background-color: #99b898;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+}
+.title{
+    text-align: center;
+}
+.title span{
+    color:#F2EBD3;
+}
+.action{
+    display: flex;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content: space-around;
+    height: 30px;
+}
+.status span {
+    color: #F2EBD3;
+  }
+.reset{
+    cursor: pointer;
+    width: 70px;
+    background-color: #F2EBD3;
+    color:#545454;
+    border-radius: 25%;
+}
+.reset:hover{
+    background-color: #545454;
+    color:#F2EBD3;
+}
+.board{
+    background-color: #545454;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-top: 50px;
+    
+}
+.cell{
+    background-color: #99b898;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;  
+}
+.x,.o{
+    cursor: default;
+}
+.x::after{
+    content: 'x';
+    font-size: 100px;
+}
+.o::after{
+    content: 'o';
+    color:#F2EBD3;
+    font-size: 120px;
+}
+.won::after{
+    color:greenyellow;
+}
+.winner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+    animation-name: winAnimation;
+    animation-duration: 6s;
+  }
+  .winner button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+  }
+  .winner button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+  }
+  .winner.show {
+    display: flex;
+  }
+  @keyframes winAnimation {
+    0%   {color: red;}
+   25%  {color: yellow;}
+   50%  {color: blue;}
+   100% {color: greenyellow;}
+  }
